@@ -452,4 +452,13 @@ ISunswapV2Pair(pair).permit(msg.sender, address(this), value, deadline, v, r, s)
     {
         return SunswapV2Library.getAmountsIn(factory, amountOut, path);
     }
+
+    function getPairOffChain(address tokenA, address tokenB)
+        public
+        view
+        virtual
+        returns (address)
+    {
+        return SunswapV2Library.pairFor(factory, tokenA, tokenB);
+    }
 }
